@@ -1,0 +1,12 @@
+.vs
+bin
+bin-int
+
+MinecraftAdventure.sln
+
+Engine/Engine.vcxproj
+
+Game/Game.vcxproj
+Game/Game.vcxproj.user
+
+Minecraft/Minecraft.vcxproj
