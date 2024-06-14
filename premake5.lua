@@ -31,7 +31,7 @@ project "Engine"
         "_CRT_SECURE_NO_WARNINGS",
 		"_SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS",
 		"_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING",
-        "EXPORT_API"
+        "ENGINE_EXPORTS"
     }
 
     includedirs
@@ -63,14 +63,17 @@ project "Engine"
     filter "configurations:Debug"
         runtime "Debug"
         symbols "On"
+        linkoptions { "/NODEFAULTLIB:MSVCRT" }
 
     filter "configurations:Release"
         runtime "Release"
         optimize "On"
+        linkoptions { "/NODEFAULTLIB:MSVCRT" }
 
     filter "configurations:Dist"
         runtime "Release"
         optimize "On"
+        linkoptions { "/NODEFAULTLIB:MSVCRT" }
 
 -- MINECRAFT
 project "Minecraft"

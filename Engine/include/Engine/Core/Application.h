@@ -2,6 +2,7 @@
 #define APPLICATION_H
 
 #include "Engine/Core/Core.h"
+#include "Engine/Core/Log.h"
 #include "Engine/Core/Window.h"
 
 namespace Engine
@@ -20,7 +21,7 @@ namespace Engine
 
 	private:
 		bool isRunning;
-		Window window;
+		Window* window;
 	};
 
 	Application* CreateApplication();
