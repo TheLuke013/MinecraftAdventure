@@ -37,8 +37,7 @@ project "Engine"
     includedirs
     {
         "%{prj.name}/include",
-        "ThirdParty/raylib/include",
-        "ThirdParty/spdlog/include"
+        "ThirdParty/raylib/include"
     }
 
     links
@@ -99,8 +98,7 @@ project "Minecraft"
     {
         "%{prj.name}/include",
         "Engine/include",
-        "ThirdParty/raylib/include",
-        "ThirdParty/spdlog/include"
+        "ThirdParty/raylib/include"
     }
 
     filter "system:windows"
@@ -145,8 +143,7 @@ project "Game"
     includedirs
     {
         "Engine/include",
-        "ThirdParty/raylib/include",
-        "ThirdParty/spdlog/include"
+        "ThirdParty/raylib/include"
     }
 
     links

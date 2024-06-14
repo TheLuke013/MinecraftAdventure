@@ -5,6 +5,8 @@ bin-int
 MinecraftAdventure.sln
 
 Engine/Engine.vcxproj
+Engine/Engine.vcxproj.filters
+Engine/Engine.vcxproj.user
 
 Game/Game.vcxproj
 Game/Game.vcxproj.user

@@ -1,26 +1,24 @@
 #include "Engine/Core/Application.h"
 
-#include <raylib.h>
-
 namespace Engine
 {
 	Application::Application()
+		: window("Minecraft Engine", 1024, 600)
 	{
 		isRunning = true;
-
-		InitWindow(1024, 600, "Engine");
+		window.Init();
 	}
 
 	Application::~Application()
 	{
-		CloseWindow();
+		window.Close();
 	}
 
 	void Application::Run()
 	{
 		OnReady();
 
-		while (isRunning)
+		while (isRunning && !window.IsClosed())
 		{
 			BeginDrawing();
 			ClearBackground(RAYWHITE);
