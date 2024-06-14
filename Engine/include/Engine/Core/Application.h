@@ -6,6 +6,8 @@
 #include "Engine/Core/Window.h"
 #include "Engine/Renderer/Camera.h"
 
+#include <Minecraft/Minecraft.h>
+
 namespace Engine
 {
 	class ENGINE_API Application
@@ -24,6 +26,8 @@ namespace Engine
 		bool isRunning;
 		Window window;
 		Camera camera;
+
+		void RegisterMinecraftContents();
 	};
 
 	Application* CreateApplication();

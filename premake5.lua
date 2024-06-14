@@ -37,11 +37,13 @@ project "Engine"
     includedirs
     {
         "%{prj.name}/include",
-        "ThirdParty/raylib/include"
+        "ThirdParty/raylib/include",
+        "Minecraft/include"
     }
 
     links
     {
+        "Minecraft",
         "ThirdParty/raylib/lib/raylib.lib",
         "winmm.lib",
         "kernel32.lib",
@@ -95,19 +97,22 @@ project "Minecraft"
         "_CRT_SECURE_NO_WARNINGS",
         "_SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS",
         "_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING",
+        "MINECRAFT_EXPORTS"
     }
 
     includedirs
     {
-        "%{prj.name}/include",
-        "Engine/include",
-        "ThirdParty/raylib/include"
+        "%{prj.name}/include"
     }
 
     filter "system:windows"
         cppdialect "C++17"
-        staticruntime "On"
         systemversion "latest"
+
+        postbuildcommands
+		{
+			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Game")
+		}
 
     filter "configurations:Debug"
         runtime "Debug"
@@ -146,17 +151,18 @@ project "Game"
     includedirs
     {
         "Engine/include",
+        "Minecraft/include",
         "ThirdParty/raylib/include"
     }
 
     links
     {
-        "Engine"
+        "Engine",
+        "Minecraft"
     }
 
     filter "system:windows"
         cppdialect "C++17"
-        staticruntime "On"
         systemversion "latest"
 
     filter "configurations:Debug"

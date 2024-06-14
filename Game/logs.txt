@@ -1,2 +1,3 @@
 ENGINE INFO: Engine Initialized
+ENGINE INFO: minecraft:grass_block was Registered
 ENGINE INFO: Engine Shutdown

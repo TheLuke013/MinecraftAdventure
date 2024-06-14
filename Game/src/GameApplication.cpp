@@ -3,7 +3,9 @@
 namespace Game
 {
     GameApplication::GameApplication()
+        : grassBlock(new Minecraft::Block("minecraft:grass_block", ""))
     {
+        Minecraft::Register::RegisterBlock(grassBlock);
     }
 
     GameApplication::~GameApplication()

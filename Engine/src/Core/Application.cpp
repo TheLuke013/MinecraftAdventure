@@ -23,6 +23,8 @@ namespace Engine
 
 	void Application::Run()
 	{
+		RegisterMinecraftContents();
+
 		DisableCursor();
 		SetTargetFPS(60);
 
@@ -50,5 +52,14 @@ namespace Engine
 	void Application::Quit()
 	{
 		isRunning = false;
+	}
+
+	void Application::RegisterMinecraftContents()
+	{
+		//Register Blocks
+		for (const auto& block : Minecraft::Register::GetRegisteredBlocks())
+		{
+			LOG_INFO(block->GetData().identifier + " was Registered");
+		}
 	}
 }

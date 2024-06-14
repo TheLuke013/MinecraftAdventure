@@ -2,6 +2,7 @@
 #define GAME_APPLICATION_H
 
 #include <Engine/Engine.h>
+#include <Minecraft/Minecraft.h>
 
 namespace Game
 {
@@ -13,6 +14,9 @@ namespace Game
 
         void OnReady() override;
         void OnUpdate() override;
+
+    private:
+        Minecraft::Block* grassBlock;
     };
 }
 
