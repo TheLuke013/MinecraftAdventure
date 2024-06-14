@@ -4,6 +4,7 @@
 #include "Engine/Core/Core.h"
 #include "Engine/Core/Log.h"
 #include "Engine/Core/Window.h"
+#include "Engine/Renderer/Camera.h"
 
 namespace Engine
 {
@@ -21,7 +22,8 @@ namespace Engine
 
 	private:
 		bool isRunning;
-		Window* window;
+		Window window;
+		Camera camera;
 	};
 
 	Application* CreateApplication();

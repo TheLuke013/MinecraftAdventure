@@ -4,6 +4,8 @@
 #include <raylib.h>
 #include <string>
 
+#include "Engine/Core/Core.h"
+
 namespace Engine
 {
 	struct WindowProperties
@@ -13,7 +15,7 @@ namespace Engine
 		int height;
 	};
 
-	class Window
+	class ENGINE_API Window
 	{
 	public:
 		Window(const std::string& title, int width, int height);

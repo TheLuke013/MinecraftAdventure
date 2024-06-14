@@ -16,6 +16,7 @@ namespace Game
 
     void GameApplication::OnUpdate()
     {
+
     }
 }
 
