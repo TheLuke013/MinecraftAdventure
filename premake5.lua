@@ -29,20 +29,37 @@ project "Engine"
     defines
     {
         "_CRT_SECURE_NO_WARNINGS",
-        "_SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS",
-        "_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING"
+		"_SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS",
+		"_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING",
+        "EXPORT_API"
     }
 
     includedirs
     {
         "%{prj.name}/include",
-        "ThirdParty/raylib/include"
+        "ThirdParty/raylib/include",
+        "ThirdParty/spdlog/include"
+    }
+
+    links
+    {
+        "ThirdParty/raylib/lib/raylib.lib",
+        "winmm.lib",
+        "kernel32.lib",
+        "gdi32.lib",
+        "user32.lib",
+        "shell32.lib",
+        "opengl32.lib"
     }
 
     filter "system:windows"
         cppdialect "C++17"
-        staticruntime "On"
         systemversion "latest"
+
+        postbuildcommands
+		{
+			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Game")
+		}
 
     filter "configurations:Debug"
         runtime "Debug"
@@ -75,14 +92,15 @@ project "Minecraft"
     {
         "_CRT_SECURE_NO_WARNINGS",
         "_SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS",
-        "_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING"
+        "_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING",
     }
 
     includedirs
     {
         "%{prj.name}/include",
         "Engine/include",
-        "ThirdParty/raylib/include"
+        "ThirdParty/raylib/include",
+        "ThirdParty/spdlog/include"
     }
 
     filter "system:windows"
@@ -120,29 +138,25 @@ project "Game"
     defines
     {
         "_CRT_SECURE_NO_WARNINGS",
-        "_SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS",
-        "_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING"
+		"_SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS",
+		"_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING"
     }
 
     includedirs
     {
         "Engine/include",
-        "ThirdParty/raylib/include"
+        "ThirdParty/raylib/include",
+        "ThirdParty/spdlog/include"
     }
 
     links
     {
-        "ThirdParty/raylib/lib/raylib.lib",
-        "winmm.lib",
-        "kernel32.lib",
-        "gdi32.lib",
-        "user32.lib",
-        "shell32.lib",
-        "opengl32.lib"
+        "Engine"
     }
 
     filter "system:windows"
         cppdialect "C++17"
+        staticruntime "On"
         systemversion "latest"
 
     filter "configurations:Debug"
