@@ -7,24 +7,26 @@
 
 namespace Minecraft
 {
-	struct BlockPosition
+	struct BlockTextures
 	{
-		float x = 0.0f;
-		float y = 0.0f;
-		float z = 0.0f;
+		std::string front;
+		std::string back;
+		std::string left;
+		std::string right;
+		std::string top;
+		std::string bottom;
 	};
 
 	struct BlockProperties
 	{
-		std::string texturePath;
 		std::string identifier;
-		BlockPosition position;
+		BlockTextures textures;
 	};
 
 	class MINECRAFT_API Block
 	{
 	public:
-		Block(const std::string& identifier, const std::string& texturePath);
+		Block(const std::string& identifier, BlockTextures& textures);
 		~Block();
 
 		BlockProperties& GetData();

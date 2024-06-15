@@ -2,10 +2,15 @@
 
 namespace Minecraft
 {
-	Block::Block(const std::string& identifier, const std::string& texturePath)
+	Block::Block(const std::string& identifier, BlockTextures& textures)
 	{
 		properties.identifier = identifier;
-		properties.texturePath = texturePath;
+		properties.textures.front = textures.front;
+		properties.textures.back = textures.back;
+		properties.textures.left = textures.left;
+		properties.textures.right = textures.right;
+		properties.textures.top = textures.top;
+		properties.textures.bottom = textures.bottom;
 	}
 
 	Block::~Block()

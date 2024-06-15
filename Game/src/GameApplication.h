@@ -17,6 +17,7 @@ namespace Game
 
     private:
         Minecraft::Block* grassBlock;
+        Minecraft::BlockTextures grassTextures;
     };
 }
 

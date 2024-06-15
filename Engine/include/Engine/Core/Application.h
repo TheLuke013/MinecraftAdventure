@@ -6,10 +6,17 @@
 #include "Engine/Core/Window.h"
 #include "Engine/Renderer/Camera.h"
 
+#include "Engine/Minecraft/EngineBlock.h"
+
 #include <Minecraft/Minecraft.h>
 
 namespace Engine
 {
+	struct MinecraftContents
+	{
+		std::vector<EngineBlock*> blocks;
+	};
+
 	class ENGINE_API Application
 	{
 	public:
@@ -26,6 +33,7 @@ namespace Engine
 		bool isRunning;
 		Window window;
 		Camera camera;
+		MinecraftContents minecraftContents;
 
 		void RegisterMinecraftContents();
 	};

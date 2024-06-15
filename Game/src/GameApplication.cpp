@@ -3,8 +3,18 @@
 namespace Game
 {
     GameApplication::GameApplication()
-        : grassBlock(new Minecraft::Block("minecraft:grass_block", ""))
+        : grassBlock(nullptr)
     {
+        grassTextures = 
+        { 
+            "assets/textures/blocks/grass_side.png",
+            "assets/textures/blocks/grass_side.png",
+            "assets/textures/blocks/grass_side.png",
+            "assets/textures/blocks/grass_side.png",
+            "assets/textures/blocks/grass_top.png",
+            "assets/textures/blocks/dirt.png" 
+        };
+        grassBlock = new Minecraft::Block("minecraft:grass_block", grassTextures);
         Minecraft::Register::RegisterBlock(grassBlock);
     }
 

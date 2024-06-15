@@ -40,9 +40,16 @@ namespace Engine
 				ClearBackground(SKYBLUE);
 
 				camera.BeginCamera();
-					static Vector3 pos = { 0.0f, 0.0f, 0.0f };
-					DrawCube(pos, 2.0f, 2.0f, 2.0f, GREEN);
-					DrawCubeWires(pos, 2.0f, 2.0f, 2.0f, BLACK);
+					for (int x = 0; x <= 16; x++)
+					{
+						for (int y = 0; y <= 16; y++)
+						{
+							for (int z = 0; z <= 16; z++)
+							{
+								minecraftContents.blocks[0]->Render({ (float)x, (float)y, (float)z }, WHITE);
+							}
+						}
+					}
 				camera.EndCamera();
 
 			EndDrawing();
@@ -59,6 +66,7 @@ namespace Engine
 		//Register Blocks
 		for (const auto& block : Minecraft::Register::GetRegisteredBlocks())
 		{
+			minecraftContents.blocks.push_back(new EngineBlock(block));
 			LOG_INFO(block->GetData().identifier + " was Registered");
 		}
 	}
